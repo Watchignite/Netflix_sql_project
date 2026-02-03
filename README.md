@@ -9,3 +9,14 @@ This project involves a comprehensive analysis of Netflix's Movies and TV Shows 
 - ✔️ Use **advanced SQL** for insight extraction  
 - ✔️ Categorize content using **keyword-based filtering**  
 - ✔️ Understand **geographical** and **historical** distribution patterns  
+## 📂 Dataset
+
+The datasets used in this project are sourced from **Kaggle**:
+
+- **Netflix Movies & TV Shows Dataset**  
+  🔗 *https://www.kaggle.com/datasets/shivamb/netflix-shows*
+
+- **Movies Dataset (Additional Dataset Used)**  
+  🔗 *https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset*
+
+Both datasets include detailed information such as title, genre, rating, release year, cast, and more — enabling strong SQL-based analysis.
