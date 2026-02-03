@@ -45,7 +45,7 @@ SELECT
 FROM netflix
 GROUP BY 1;
 ```
-##### Objective: Determine the distribution of content types on Netflix.
+#### Objective: Determine the distribution of content types on Netflix.
 ### 2️⃣ Most Common Rating for Movies and TV Shows
 ```sql
 WITH RatingCounts AS (
@@ -70,4 +70,37 @@ SELECT
 FROM RankedRatings
 WHERE rank = 1;
 ```
-##### Objective: Identify the most frequently occurring rating for each type of content.
+#### Objective: Identify the most frequently occurring rating for each type of content.
+### 3️⃣ All Movies Released in a Specific Year (Example: 2020)
+```sql
+SELECT * 
+FROM netflix
+WHERE release_year = 2020;
+```
+#### Objective: Retrieve all movies released in a specific year.
+### 4️⃣ Top 5 Countries with the Most Netflix Content
+```sql
+SELECT * 
+FROM
+(
+    SELECT 
+        UNNEST(STRING_TO_ARRAY(country, ',')) AS country,
+        COUNT(*) AS total_content
+    FROM netflix
+    GROUP BY 1
+) AS t1
+WHERE country IS NOT NULL
+ORDER BY total_content DESC
+LIMIT 5;
+```
+#### Objective: Identify the top 5 countries with the highest number of content items.
+### 5️⃣ Longest Movie
+```sql
+SELECT 
+    *
+FROM netflix
+WHERE type = 'Movie'
+ORDER BY SPLIT_PART(duration, ' ', 1)::INT DESC;
+```
+#### Objective: Find the movie with the longest duration.
+###
