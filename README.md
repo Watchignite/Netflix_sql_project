@@ -211,7 +211,7 @@ GROUP BY category;
 - ✔️ Ratings analysis helps understand the dominant audience group
 - ✔️ Country-wise insights reveal strong contributions from countries like India, US, UK, and Canada
 - ✔️ Keyword-based categorization helps classify content tone
-- ✔️ nderstanding yearly release patterns helps identify platform trends
+- ✔️ Understanding yearly release patterns helps identify platform trends
 This project showcases strong SQL analytical skills, useful for data analyst roles and portfolio building.
 
 - Content Distribution: The dataset contains a diverse range of movies and TV shows with varying ratings and genres.
@@ -220,6 +220,5 @@ This project showcases strong SQL analytical skills, useful for data analyst rol
 - Content Categorization: Categorizing content based on specific keywords helps in understanding the nature of content available on Netflix.
 This analysis provides a comprehensive view of Netflix's content and can help inform content strategy and decision-making.
 
-## 👨‍💻 Author — Kothur Charan Reddy
-STUDENT 
+## 👨‍💻 Author — Kothur Charan Reddy - STUDENT 
 This project is part of my portfolio, showcasing the SQL skills essential for data analyst roles. If you have any questions, feedback, or would like to collaborate, feel free to get in touch!
