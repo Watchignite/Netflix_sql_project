@@ -45,7 +45,7 @@ SELECT
 FROM netflix
 GROUP BY 1;
 ```
-### Objective: Determine the distribution of content types on Netflix.
+##### Objective: Determine the distribution of content types on Netflix.
 ### 2️⃣ Most Common Rating for Movies and TV Shows
 ```sql
 WITH RatingCounts AS (
@@ -70,4 +70,4 @@ SELECT
 FROM RankedRatings
 WHERE rank = 1;
 ```
-### Objective: Identify the most frequently occurring rating for each type of content.
+##### Objective: Identify the most frequently occurring rating for each type of content.
