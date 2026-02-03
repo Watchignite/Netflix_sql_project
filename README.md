@@ -19,7 +19,7 @@ The datasets used in this project are sourced from **Kaggle**:
  Dataset include detailed information such as title, genre, rating, release year, cast, and more — enabling strong SQL-based analysis.
 ## Schema
 DROP TABLE IF EXISTS netflix;
-
+``` sql
 CREATE TABLE netflix
 (
     show_id      VARCHAR(5),
@@ -34,4 +34,4 @@ CREATE TABLE netflix
     duration     VARCHAR(15),
     listed_in    VARCHAR(250),
     description  VARCHAR(550)
-);
+); ```
