@@ -103,4 +103,123 @@ WHERE type = 'Movie'
 ORDER BY SPLIT_PART(duration, ' ', 1)::INT DESC;
 ```
 #### Objective: Find the movie with the longest duration.
-###
+### 6️⃣ Content Added in the Last 5 Years
+```sql
+SELECT *
+FROM netflix
+WHERE TO_DATE(date_added, 'Month DD, YYYY') >= CURRENT_DATE - INTERVAL '5 years';
+```
+#### Objective: Retrieve content added to Netflix in the last 5 years.
+### 7️⃣ All Movies/TV Shows by Director “Rajiv Chilaka”
+```sql
+SELECT *
+FROM (
+    SELECT 
+        *,
+        UNNEST(STRING_TO_ARRAY(director, ',')) AS director_name
+    FROM netflix
+) AS t
+WHERE director_name = 'Rajiv Chilaka';
+```
+#### Objective: List all content directed by 'Rajiv Chilaka'.
+### 8️⃣ TV Shows with More Than 5 Seasons
+```sql
+SELECT *
+FROM netflix
+WHERE type = 'TV Show'
+  AND SPLIT_PART(duration, ' ', 1)::INT > 5;
+```
+#### Objective: Identify TV shows with more than 5 seasons.
+### 9️⃣ Number of Content Items in Each Genre
+```sql
+SELECT 
+    UNNEST(STRING_TO_ARRAY(listed_in, ',')) AS genre,
+    COUNT(*) AS total_content
+FROM netflix
+GROUP BY 1;
+```
+#### Objective: Count the number of content items in each genre.
+### 🔟 Top 5 Years With Highest Avg Content Release in India
+```sql
+SELECT 
+    country,
+    release_year,
+    COUNT(show_id) AS total_release,
+    ROUND(
+        COUNT(show_id)::numeric /
+        (SELECT COUNT(show_id) FROM netflix WHERE country = 'India')::numeric * 100, 2
+    ) AS avg_release
+FROM netflix
+WHERE country = 'India'
+GROUP BY country, release_year
+ORDER BY avg_release DESC
+LIMIT 5;
+```
+#### Objective: Calculate and rank years by the average number of content releases by India.
+### 1️⃣1️⃣ List All Documentaries
+```sql
+SELECT * 
+FROM netflix
+WHERE listed_in LIKE '%Documentaries';
+```
+#### Objective: Retrieve all movies classified as documentaries.
+### 1️⃣2️⃣ Content Without a Director
+```sql
+SELECT * 
+FROM netflix
+WHERE director IS NULL;
+```
+#### Objective: List content that does not have a director.
+### 1️⃣3️⃣ Movies Featuring Salman Khan in the Last 10 Years
+```sql
+SELECT * 
+FROM netflix
+WHERE casts LIKE '%Salman Khan%'
+  AND release_year > EXTRACT(YEAR FROM CURRENT_DATE) - 10;
+```
+#### Objective: Count the number of movies featuring 'Salman Khan' in the last 10 years.
+### 1️⃣4️⃣ Top 10 Actors Appearing in Indian Netflix Movies
+```sql
+SELECT 
+    UNNEST(STRING_TO_ARRAY(casts, ',')) AS actor,
+    COUNT(*)
+FROM netflix
+WHERE country = 'India'
+GROUP BY actor
+ORDER BY COUNT(*) DESC
+LIMIT 10;
+```
+#### Objective: Identify the top 10 actors with the most appearances in Indian-produced movies.
+### 1️⃣5️⃣ Categorize Content as “Good” or “Bad” Based on 'Kill' / 'Violence'
+```sql
+SELECT 
+    category,
+    COUNT(*) AS content_count
+FROM (
+    SELECT 
+        CASE 
+            WHEN description ILIKE '%kill%' OR description ILIKE '%violence%' THEN 'Bad'
+            ELSE 'Good'
+        END AS category
+    FROM netflix
+) AS categorized_content
+GROUP BY category;
+```
+#### Objective: Categorize content as 'Bad' if it contains 'kill' or 'violence' and 'Good' otherwise. Count the number of items in each category.
+## 🧾 Findings & Conclusion
+- ✔️ Netflix hosts a diverse collection of Movies and TV Shows
+- ✔️ Ratings analysis helps understand the dominant audience group
+- ✔️ Country-wise insights reveal strong contributions from countries like India, US, UK, and Canada
+- ✔️ Keyword-based categorization helps classify content tone
+- ✔️ nderstanding yearly release patterns helps identify platform trends
+This project showcases strong SQL analytical skills, useful for data analyst roles and portfolio building.
+
+- Content Distribution: The dataset contains a diverse range of movies and TV shows with varying ratings and genres.
+- Common Ratings: Insights into the most common ratings provide an understanding of the content's target audience.
+- Geographical Insights: The top countries and the average content releases by India highlight regional content distribution.
+- Content Categorization: Categorizing content based on specific keywords helps in understanding the nature of content available on Netflix.
+This analysis provides a comprehensive view of Netflix's content and can help inform content strategy and decision-making.
+
+## 👨‍💻 Author — Kothur Charan Reddy
+STUDENT 
+This project is part of my portfolio, showcasing the SQL skills essential for data analyst roles. If you have any questions, feedback, or would like to collaborate, feel free to get in touch!
