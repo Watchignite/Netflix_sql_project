@@ -34,7 +34,7 @@ CREATE TABLE netflix
     duration     VARCHAR(15),
     listed_in    VARCHAR(250),
     description  VARCHAR(550)
-); yaml
-
+);
+```
 ## 🧠 Business Problems and SQL Solutions
 ### 1️⃣ Count the Number of Movies vs TV Shows
