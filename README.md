@@ -222,4 +222,7 @@ This analysis provides a comprehensive view of Netflix's content and can help in
 
 ## 👨‍💻 Author — Kothur Charan Reddy - STUDENT 
 This project is part of my portfolio, showcasing the SQL skills essential for data analyst roles. If you have any questions, feedback, or would like to collaborate, feel free to get in touch!
+
+💼 LinkedIn Profile : [Charan Kothur](https://www.linkedin.com/in/charankothur/)
+
 ## 💡 Thanks for checking out the project! Your support means a lot — feel free to star ⭐ this repo or share it with someone learning SQL.🚀
