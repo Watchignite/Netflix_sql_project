@@ -77,7 +77,7 @@ SELECT *
 FROM netflix
 WHERE release_year = 2020;
 ```
-#### Objective: Retrieve all movies released in a specific year.
+#### Objective: Retrieve all the movies released in a specific year.
 ### 4️⃣ Top 5 Countries with the Most Netflix Content
 ```sql
 SELECT * 
